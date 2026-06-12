@@ -36,40 +36,64 @@ export function BrandsSection() {
           </motion.h2>
         </motion.div>
 
-        <motion.div
-          style={{ y }}
-          initial="hidden"
-          whileInView="show"
-          viewport={VIEWPORT_ONCE}
-          variants={staggerContainer(0.08)}
-          className="mt-16 grid grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-6"
-        >
-          {brands.map((brand) => (
-            <motion.div
-              key={brand.name}
-              variants={fadeUpItem}
-              className={`flex flex-col items-center justify-center gap-2 bg-surface px-8 py-6 text-center transition-[transform,border-color] duration-300 hover:scale-[1.04] ${
-                brand.highlight
-                  ? 'border border-[rgba(91,75,214,0.4)] hover:border-[rgba(91,75,214,0.7)]'
-                  : 'border border-white/[0.06] hover:border-[rgba(91,75,214,0.35)]'
-              }`}
-            >
-              <p
-                className={`font-display text-[1.8rem] leading-none ${
-                  brand.highlight ? 'text-accent' : 'text-white'
+        <div className="mt-16 grid gap-4 lg:grid-cols-2 lg:items-stretch">
+          {/* Marcas en matriz 3×2 */}
+          <motion.div
+            style={{ y }}
+            initial="hidden"
+            whileInView="show"
+            viewport={VIEWPORT_ONCE}
+            variants={staggerContainer(0.08)}
+            className="grid grid-cols-2 gap-4"
+          >
+            {brands.map((brand) => (
+              <motion.div
+                key={brand.name}
+                variants={fadeUpItem}
+                className={`flex flex-col items-center justify-center gap-2 bg-surface px-8 py-6 text-center transition-[transform,border-color] duration-300 hover:scale-[1.04] ${
+                  brand.highlight
+                    ? 'border border-[rgba(91,75,214,0.4)] hover:border-[rgba(91,75,214,0.7)]'
+                    : 'border border-white/[0.06] hover:border-[rgba(91,75,214,0.35)]'
                 }`}
               >
-                {brand.name}
-              </p>
-              {brand.highlight && (
-                <p className="font-accent text-[0.6rem] uppercase tracking-[0.14em] text-accent">
-                  Distribuidor Colombia
+                <p
+                  className={`font-display text-[1.8rem] leading-none ${
+                    brand.highlight ? 'text-accent' : 'text-white'
+                  }`}
+                >
+                  {brand.name}
                 </p>
-              )}
-              <p className="font-accent text-[0.68rem] leading-snug text-muted">{brand.role}</p>
+                {brand.highlight && (
+                  <p className="font-accent text-[0.6rem] uppercase tracking-[0.14em] text-accent">
+                    Distribuidor Colombia
+                  </p>
+                )}
+                <p className="font-accent text-[0.68rem] leading-snug text-muted">{brand.role}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* Imagen del taller */}
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={VIEWPORT_ONCE}
+            variants={staggerContainer(0.1)}
+          >
+            <motion.div
+              variants={fadeUpItem}
+              className="group relative h-full min-h-[320px] overflow-hidden border border-line border-t-2 border-t-accent"
+            >
+              <img
+                src="/gallery/image2.webp"
+                alt="Mecánico CMB dando servicio a una horquilla de suspensión"
+                loading="lazy"
+                className="absolute inset-0 h-full w-full object-cover"
+              />
+              <div className="absolute inset-0 bg-bg/40 transition-opacity duration-500 group-hover:opacity-0" />
             </motion.div>
-          ))}
-        </motion.div>
+          </motion.div>
+        </div>
       </div>
     </section>
   )

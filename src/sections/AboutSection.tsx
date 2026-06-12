@@ -78,18 +78,6 @@ export function AboutSection() {
                 → Síguenos en Instagram {instagram.handle}
               </a>
             </motion.div>
-            <motion.div
-              variants={fadeUpItem}
-              className="group relative mt-12 hidden overflow-hidden border border-line border-t-2 border-t-accent lg:block"
-            >
-              <img
-                src="/gallery/image2.webp"
-                alt="Mecánico CMB dando servicio a una horquilla de suspensión"
-                loading="lazy"
-                className="aspect-[16/10] w-full object-cover"
-              />
-              <div className="absolute inset-0 bg-bg/40 transition-opacity duration-500 group-hover:opacity-0" />
-            </motion.div>
           </motion.div>
         </div>
 
