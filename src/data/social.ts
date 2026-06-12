@@ -8,10 +8,10 @@ export interface SocialLink {
 }
 
 /**
- * Número placeholder — reemplazar por el número real de CMB
- * (formato internacional sin "+": 57 + 10 dígitos).
+ * WhatsApp del taller CMB (celular 316 250 7345).
+ * Formato internacional sin "+": 57 + 10 dígitos.
  */
-export const WHATSAPP_NUMBER = '573000000000'
+export const WHATSAPP_NUMBER = '573162507345'
 
 export function waLink(text?: string): string {
   const base = `https://wa.me/${WHATSAPP_NUMBER}`
