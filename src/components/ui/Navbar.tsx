@@ -46,7 +46,7 @@ export function Navbar() {
           scrolled || menuOpen ? 'bg-[rgba(8,8,8,0.88)] backdrop-blur-xl' : 'bg-transparent'
         }`}
       >
-        <nav className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-6">
+        <nav className="mx-auto flex h-[88px] max-w-7xl items-center justify-between px-6">
           {/* Logo */}
           <a
             href="#"
@@ -61,9 +61,9 @@ export function Navbar() {
             <img
               src="/logo.png"
               alt="Logo Grupo CMB"
-              className="h-10 w-10 rounded-lg object-cover ring-1 ring-white/10"
+              className="h-12 w-12 rounded-lg object-cover ring-1 ring-white/10"
             />
-            <span className="font-display text-[1.8rem] leading-none">
+            <span className="font-display text-[2rem] leading-none">
               <span className="text-accent">CMB</span>{' '}
               <span className="text-white">PARK TOOL</span>
             </span>
@@ -76,7 +76,7 @@ export function Navbar() {
                 <a
                   href={link.href}
                   onClick={(e) => handleAnchor(e, link.href)}
-                  className="link-underline font-body text-[0.85rem] text-white transition-colors duration-200 hover:text-accent"
+                  className="link-underline font-body text-[0.95rem] text-white transition-colors duration-200 hover:text-accent"
                 >
                   {link.label}
                 </a>
@@ -89,7 +89,7 @@ export function Navbar() {
             <MagneticButton
               href={waLink('Hola CMB! Quiero solicitar un servicio para mi bicicleta.')}
               external
-              className="border border-accent px-5 py-2.5 font-accent text-[0.72rem] uppercase tracking-[0.14em] text-accent transition-colors duration-200 hover:bg-accent hover:text-white"
+              className="border border-accent bg-accent px-6 py-3 font-accent text-[0.75rem] uppercase tracking-[0.14em] text-white transition-colors duration-200 hover:border-accent-h hover:bg-accent-h"
             >
               Solicitar Servicio
             </MagneticButton>
@@ -141,7 +141,7 @@ export function Navbar() {
                 href={waLink('Hola CMB! Quiero solicitar un servicio para mi bicicleta.')}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="border border-accent px-8 py-3 font-accent text-[0.8rem] uppercase tracking-[0.14em] text-accent"
+                className="border border-accent bg-accent px-8 py-3 font-accent text-[0.8rem] uppercase tracking-[0.14em] text-white"
               >
                 Solicitar Servicio
               </a>

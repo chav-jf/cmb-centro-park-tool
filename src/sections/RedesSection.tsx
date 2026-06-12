@@ -42,7 +42,7 @@ export function RedesSection() {
           whileInView="show"
           viewport={VIEWPORT_ONCE}
           variants={staggerContainer(0.1)}
-          className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+          className="mx-auto mt-16 grid max-w-[920px] grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
         >
           {reels.map((reel) => (
             <motion.div key={reel.id} variants={fadeUpItem}>

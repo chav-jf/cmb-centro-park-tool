@@ -23,7 +23,7 @@ export function destroyLenis(): void {
 }
 
 /** Scroll suave a un anchor (#id) con Lenis; cae a scrollIntoView si Lenis no está activo. */
-export function scrollToSection(selector: string, offset = -72): void {
+export function scrollToSection(selector: string, offset = -88): void {
   if (instance) {
     instance.scrollTo(selector, { offset })
     return
