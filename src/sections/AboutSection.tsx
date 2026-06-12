@@ -83,8 +83,8 @@ export function AboutSection() {
               className="group relative mt-12 hidden overflow-hidden border border-line border-t-2 border-t-accent lg:block"
             >
               <img
-                src="/gallery/largeimage.webp"
-                alt="Interior del taller CMB con herramientas Park Tool"
+                src="/gallery/image2.webp"
+                alt="Mecánico CMB dando servicio a una horquilla de suspensión"
                 loading="lazy"
                 className="aspect-[16/10] w-full object-cover"
               />

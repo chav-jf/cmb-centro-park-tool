@@ -23,13 +23,14 @@ export function ScooterSection() {
   return (
     <section id="scooters" className="overflow-hidden bg-bg py-28">
       <div className="mx-auto max-w-7xl px-6">
-        {/* Encabezado */}
-        <motion.div
-          initial="hidden"
-          whileInView="show"
-          viewport={VIEWPORT_ONCE}
-          variants={staggerContainer(0.1)}
-        >
+        {/* Encabezado + imagen */}
+        <div className="grid items-center gap-12 lg:grid-cols-2">
+          <motion.div
+            initial="hidden"
+            whileInView="show"
+            viewport={VIEWPORT_ONCE}
+            variants={staggerContainer(0.1)}
+          >
           <motion.p
             variants={fadeUpItem}
             className="font-accent text-[0.72rem] uppercase tracking-[0.18em] text-accent"
@@ -51,7 +52,24 @@ export function ScooterSection() {
             responsabilidad: conoce las normas de tránsito y rueda seguro. Si necesitas una revisión
             —o estás pensando en tener la tuya— visítanos.
           </motion.p>
-        </motion.div>
+          </motion.div>
+
+          {/* Imagen del scooter — a la derecha del texto */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.96 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={VIEWPORT_ONCE}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            className="overflow-hidden border border-line border-t-2 border-t-accent shadow-[0_24px_70px_rgba(91,75,214,0.2)]"
+          >
+            <img
+              src="/gallery/SCOOTER.png"
+              alt="Servicio de mantenimiento de scooters y bicicletas eléctricas CMB"
+              loading="lazy"
+              className="w-full object-cover"
+            />
+          </motion.div>
+        </div>
 
         {/* Media + beneficios */}
         <div className="mt-14 grid items-start gap-12 lg:grid-cols-[auto_1fr]">
@@ -155,22 +173,6 @@ export function ScooterSection() {
             </motion.div>
           </motion.div>
         </div>
-
-        {/* Imagen promocional */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={VIEWPORT_ONCE}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="mx-auto mt-16 max-w-2xl overflow-hidden border border-line border-t-2 border-t-accent"
-        >
-          <img
-            src="/gallery/SCOOTER.png"
-            alt="Servicio de mantenimiento de scooters y bicicletas eléctricas CMB"
-            loading="lazy"
-            className="w-full object-cover"
-          />
-        </motion.div>
       </div>
     </section>
   )

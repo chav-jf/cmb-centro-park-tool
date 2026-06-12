@@ -102,7 +102,7 @@ export function SuspensionSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={VIEWPORT_ONCE}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="justify-self-center lg:justify-self-end"
+          className="justify-self-center lg:justify-self-end lg:mr-10 xl:mr-20"
         >
           <div className="relative aspect-[9/16] w-[clamp(240px,70vw,340px)] overflow-hidden border border-line border-t-2 border-t-accent shadow-[0_24px_70px_rgba(91,75,214,0.25)]">
             <video

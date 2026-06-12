@@ -21,6 +21,7 @@ export function HeroSection() {
   const yTag = useTransform(scrollYProgress, [0, 1], [0, reduced ? 0 : -60])
   const yTitle = useTransform(scrollYProgress, [0, 1], [0, reduced ? 0 : -130])
   const yCta = useTransform(scrollYProgress, [0, 1], [0, reduced ? 0 : -200])
+  const yImage = useTransform(scrollYProgress, [0, 1], [0, reduced ? 0 : -90])
 
   return (
     <section
@@ -50,65 +51,91 @@ export function HeroSection() {
         </div>
       </div>
 
-      <div className="relative z-10 mx-auto w-full max-w-7xl px-6">
-        {/* Capa 1 — lenta */}
-        <motion.div style={{ y: yTag }}>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.65, ease: EASE, delay: 0.15 }}
-            className="font-accent text-[0.72rem] uppercase tracking-[0.18em] text-accent"
-          >
-            Pasto, Nariño — Colombia · Desde 2008
-          </motion.p>
-        </motion.div>
-
-        {/* Capa 2 — media */}
-        <motion.div style={{ y: yTitle }}>
-          <h1 className="mt-6 font-display text-[clamp(4.5rem,11vw,13rem)] leading-[0.88] text-white">
-            {H1_LINES.map((line, i) => (
-              <span key={line} className="block overflow-hidden">
-                <motion.span
-                  className="block"
-                  initial={{ y: '100%' }}
-                  animate={{ y: 0 }}
-                  transition={{ duration: 0.9, ease: EASE, delay: 0.3 + i * 0.12 }}
-                >
-                  {line}
-                </motion.span>
-              </span>
-            ))}
-          </h1>
-        </motion.div>
-
-        {/* Capa 3 — rápida */}
-        <motion.div style={{ y: yCta }}>
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.65, ease: EASE, delay: 0.7 }}
-          >
-            <p className="mt-8 max-w-[520px] font-body text-[1.05rem] leading-[1.65] text-[#9a96b8]">
-              Grupo CMB — Centro especializado en mantenimiento de bicicletas. Distribuidores ND
-              Tuned en Colombia desde 2021.
-            </p>
-            <div className="mt-10 flex flex-wrap items-center gap-4">
-              <MagneticButton
-                href={waLink('Hola CMB! Quiero solicitar un servicio para mi bicicleta.')}
-                external
-                className="bg-accent px-8 py-4 font-accent text-[0.8rem] uppercase tracking-[0.14em] text-white transition-colors duration-200 hover:bg-accent-h"
-              >
-                Solicitar Servicio
-                <ArrowUpRight size={18} strokeWidth={2} />
-              </MagneticButton>
-              <MagneticButton
-                onClick={() => scrollToSection('#servicios')}
-                className="border border-white/30 px-8 py-4 font-accent text-[0.8rem] uppercase tracking-[0.14em] text-white transition-colors duration-200 hover:border-accent hover:text-accent"
-              >
-                Ver Servicios
-              </MagneticButton>
-            </div>
+      <div className="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-12 px-6 lg:grid-cols-[1.1fr_0.9fr]">
+        {/* Columna texto */}
+        <div>
+          {/* Capa 1 — lenta */}
+          <motion.div style={{ y: yTag }}>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.65, ease: EASE, delay: 0.15 }}
+              className="font-accent text-[0.72rem] uppercase tracking-[0.18em] text-accent"
+            >
+              Pasto, Nariño — Colombia · Desde 2008
+            </motion.p>
           </motion.div>
+
+          {/* Capa 2 — media */}
+          <motion.div style={{ y: yTitle }}>
+            <h1 className="mt-6 font-display text-[clamp(3.5rem,8vw,9rem)] leading-[0.88] text-white">
+              {H1_LINES.map((line, i) => (
+                <span key={line} className="block overflow-hidden">
+                  <motion.span
+                    className="block"
+                    initial={{ y: '100%' }}
+                    animate={{ y: 0 }}
+                    transition={{ duration: 0.9, ease: EASE, delay: 0.3 + i * 0.12 }}
+                  >
+                    {line}
+                  </motion.span>
+                </span>
+              ))}
+            </h1>
+          </motion.div>
+
+          {/* Capa 3 — rápida */}
+          <motion.div style={{ y: yCta }}>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.65, ease: EASE, delay: 0.7 }}
+            >
+              <p className="mt-8 max-w-[520px] font-body text-[1.05rem] leading-[1.65] text-[#9a96b8]">
+                Grupo CMB — Centro especializado en mantenimiento de bicicletas. Distribuidores ND
+                Tuned en Colombia desde 2021.
+              </p>
+              <div className="mt-10 flex flex-wrap items-center gap-4">
+                <MagneticButton
+                  href={waLink('Hola CMB! Quiero solicitar un servicio para mi bicicleta.')}
+                  external
+                  className="bg-accent px-8 py-4 font-accent text-[0.8rem] uppercase tracking-[0.14em] text-white transition-colors duration-200 hover:bg-accent-h"
+                >
+                  Solicitar Servicio
+                  <ArrowUpRight size={18} strokeWidth={2} />
+                </MagneticButton>
+                <MagneticButton
+                  onClick={() => scrollToSection('#servicios')}
+                  className="border border-white/30 px-8 py-4 font-accent text-[0.8rem] uppercase tracking-[0.14em] text-white transition-colors duration-200 hover:border-accent hover:text-accent"
+                >
+                  Ver Servicios
+                </MagneticButton>
+              </div>
+            </motion.div>
+          </motion.div>
+        </div>
+
+        {/* Columna imagen del taller (oculta en móvil) */}
+        <motion.div
+          style={{ y: yImage }}
+          initial={{ opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.9, ease: EASE, delay: 0.5 }}
+          className="hidden lg:block"
+        >
+          <div className="relative aspect-[4/5] overflow-hidden border border-line border-t-2 border-t-accent shadow-[0_30px_80px_rgba(91,75,214,0.25)]">
+            <img
+              src="/gallery/largeimage.webp"
+              alt="Interior del taller CMB con herramientas Park Tool en Pasto"
+              className="h-full w-full object-cover"
+            />
+            <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 p-5">
+              <p className="font-accent text-[0.62rem] uppercase tracking-[0.18em] text-white/85">
+                Taller CMB · Pasto, Nariño
+              </p>
+            </div>
+          </div>
         </motion.div>
       </div>
 
