@@ -10,6 +10,7 @@ import { HeroSection } from './sections/HeroSection'
 import { MarqueeSection } from './sections/MarqueeSection'
 import { AboutSection } from './sections/AboutSection'
 import { ServicesSection } from './sections/ServicesSection'
+import { SuspensionSection } from './sections/SuspensionSection'
 import { BrandsSection } from './sections/BrandsSection'
 import { GallerySection } from './sections/GallerySection'
 import { RedesSection } from './sections/RedesSection'
@@ -42,6 +43,7 @@ function HomePage() {
       <MarqueeSection />
       <AboutSection />
       <ServicesSection />
+      <SuspensionSection />
       <BrandsSection />
       <GallerySection />
       <RedesSection />
