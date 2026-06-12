@@ -1,34 +1,39 @@
 export interface Reel {
   id: string
-  /** Ruta del video en /public (vacío = slot "Próximamente"). */
-  src: string
+  /** ID del video de TikTok (data-video-id del embed). */
+  tiktokId: string
   caption: string
   hashtags: string[]
-  platform: 'Instagram' | 'TikTok' | 'Facebook'
-  /** Link al post real (opcional). */
-  href?: string
+  /** URL del post en TikTok. */
+  url: string
 }
 
+const PROFILE = 'https://www.tiktok.com/@cmbcentroparktool/video'
+
 /**
- * Reels verticales 9:16. Para añadir uno nuevo:
- * 1. Pega el .mp4 (formato vertical 720×1280) en `public/videos/`.
- * 2. Agrega una entrada aquí con su `src`, caption y hashtags.
- * Los slots con `src: ''` se muestran como "Próximamente".
+ * Reels de TikTok de @cmbcentroparktool. Para cambiar uno, reemplaza el
+ * `tiktokId` por el data-video-id del nuevo embed.
  */
 export const reels: Reel[] = [
   {
-    id: 'rockshox-purga',
-    src: '/videos/video.mp4',
-    caption: 'Purga rápida del damper delantero RockShox',
-    hashtags: ['rockshoxbrain', 'rockshox', 'suspensionservicecenter', 'mechanicbikecolombia'],
-    platform: 'Instagram',
-    href: 'https://instagram.com/cmbcentroparktool',
+    id: 'organizacion-taller',
+    tiktokId: '7519539556534783238',
+    caption: 'La organización correcta del taller siempre será fundamental.',
+    hashtags: ['workshop', 'mechaniclife', 'bikemechanic'],
+    url: `${PROFILE}/7519539556534783238`,
   },
   {
-    id: 'placeholder-1',
-    src: '',
-    caption: 'Tu próximo reel CMB',
-    hashtags: ['cmbcentroparktool', 'parktool'],
-    platform: 'TikTok',
+    id: 'dia-habitual',
+    tiktokId: '7623941012028689671',
+    caption: 'Un día habitual de trabajo.',
+    hashtags: ['rockshoxsuspension', 'suspensionlab', 'tallerdebicicletas'],
+    url: `${PROFILE}/7623941012028689671`,
+  },
+  {
+    id: 'bombas-ndtuned',
+    tiktokId: '7548083077759667461',
+    caption: 'Te presentamos las bombas para suspensiones ND Tuned.',
+    hashtags: ['ndtunedproducts', 'ndtunedcolombia', 'suspensionbiketools'],
+    url: `${PROFILE}/7548083077759667461`,
   },
 ]
