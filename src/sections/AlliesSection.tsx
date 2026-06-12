@@ -1,43 +1,7 @@
-import type { ReactNode } from 'react'
 import { motion } from 'framer-motion'
 import { ExternalLink, FileText } from 'lucide-react'
-import { alliedBrands, type AlliedBrand } from '../data/allies'
+import { alliedBrands } from '../data/allies'
 import { fadeUpItem, staggerContainer, VIEWPORT_ONCE } from '../lib/motion'
-
-/** Wordmark creativo por marca (monocromático sobre oscuro, estilo partners). */
-function Wordmark({ id }: { id: AlliedBrand['id'] }): ReactNode {
-  if (id === 'andreani') {
-    return (
-      <span className="flex items-center gap-1.5">
-        <span className="font-body text-[2.1rem] font-extrabold italic tracking-tight text-white">
-          Andreani
-        </span>
-        <svg width="22" height="26" viewBox="0 0 22 26" aria-hidden="true">
-          <path d="M2 2 L13 13 L2 24 L7 24 L18 13 L7 2 Z" fill="#FF2E1F" transform="skewX(-8)" />
-        </svg>
-      </span>
-    )
-  }
-  if (id === 'session') {
-    return (
-      <span className="flex flex-col items-center">
-        <span className="font-body text-[2rem] font-black italic uppercase tracking-[0.12em] text-white">
-          Session
-        </span>
-        <span className="mt-1 font-accent text-[0.55rem] uppercase tracking-[0.32em] text-white/55">
-          we make you faster
-        </span>
-      </span>
-    )
-  }
-  // ND Tuned
-  return (
-    <span className="flex items-baseline gap-2">
-      <span className="font-body text-[2.3rem] font-black leading-none text-accent">ND</span>
-      <span className="font-accent text-[1.15rem] uppercase tracking-[0.3em] text-white">tuned</span>
-    </span>
-  )
-}
 
 export function AlliesSection() {
   return (
@@ -86,7 +50,7 @@ export function AlliesSection() {
               rel="noopener noreferrer"
               whileHover={{ y: -8 }}
               transition={{ type: 'spring', stiffness: 200, damping: 22 }}
-              className={`group relative flex flex-col items-center overflow-hidden border bg-surface px-8 py-12 text-center transition-[border-color,box-shadow] duration-300 hover:shadow-[0_24px_70px_rgba(91,75,214,0.25)] ${
+              className={`group relative flex flex-col items-center overflow-hidden border bg-surface px-8 py-10 text-center transition-[border-color,box-shadow] duration-300 hover:shadow-[0_24px_70px_rgba(91,75,214,0.25)] ${
                 brand.highlight
                   ? 'border-[rgba(91,75,214,0.4)] hover:border-[rgba(91,75,214,0.7)]'
                   : 'border-line hover:border-[rgba(91,75,214,0.45)]'
@@ -102,16 +66,24 @@ export function AlliesSection() {
                 </span>
               )}
 
-              {/* Wordmark */}
-              <div className="flex h-24 items-center justify-center">
-                <Wordmark id={brand.id} />
+              {/* Logo en placa del color de su fondo */}
+              <div
+                className="mt-4 flex h-24 w-full items-center justify-center rounded-lg px-6 ring-1 ring-white/10"
+                style={{ backgroundColor: brand.plate }}
+              >
+                <img
+                  src={brand.logo}
+                  alt={`Logo ${brand.name}`}
+                  loading="lazy"
+                  className="max-h-12 w-auto max-w-full object-contain"
+                />
               </div>
 
-              <p className="mt-2 font-accent text-[0.68rem] uppercase tracking-[0.12em] text-muted">
+              <p className="mt-5 font-accent text-[0.68rem] uppercase tracking-[0.12em] text-muted">
                 {brand.tagline}
               </p>
 
-              <span className="link-underline mt-8 inline-flex items-center gap-2 font-accent text-[0.74rem] uppercase tracking-[0.14em] text-accent transition-transform duration-200 group-hover:translate-x-1">
+              <span className="link-underline mt-6 inline-flex items-center gap-2 font-accent text-[0.74rem] uppercase tracking-[0.14em] text-accent transition-transform duration-200 group-hover:translate-x-1">
                 Ver catálogo <ExternalLink size={14} />
               </span>
             </motion.a>
