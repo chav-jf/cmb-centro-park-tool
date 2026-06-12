@@ -1,5 +1,6 @@
+import { useRef, useState } from 'react'
 import { motion } from 'framer-motion'
-import { ArrowUpRight, Check, Instagram, MapPin, Phone } from 'lucide-react'
+import { ArrowUpRight, Check, Instagram, MapPin, Phone, Volume2, VolumeX } from 'lucide-react'
 import { MagneticButton } from '../components/interactive/MagneticButton'
 import { useReducedMotion } from '../hooks/useReducedMotion'
 import { fadeUpItem, staggerContainer, VIEWPORT_ONCE } from '../lib/motion'
@@ -19,6 +20,16 @@ const beneficios = [
 
 export function ScooterSection() {
   const reduced = useReducedMotion()
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const [muted, setMuted] = useState(true)
+
+  const toggleMute = (): void => {
+    const video = videoRef.current
+    if (!video) return
+    video.muted = !video.muted
+    if (!video.muted && video.paused) void video.play().catch(() => undefined)
+    setMuted(video.muted)
+  }
 
   return (
     <section id="scooters" className="overflow-hidden bg-bg py-28">
@@ -83,6 +94,7 @@ export function ScooterSection() {
           >
             <div className="relative aspect-[9/16] w-[clamp(240px,70vw,320px)] overflow-hidden border border-line border-t-2 border-t-accent shadow-[0_24px_70px_rgba(91,75,214,0.25)]">
               <video
+                ref={videoRef}
                 src="/videos/Scooter.mp4"
                 autoPlay={!reduced}
                 muted
@@ -90,9 +102,17 @@ export function ScooterSection() {
                 playsInline
                 preload="metadata"
                 className="h-full w-full object-cover"
-                aria-hidden="true"
               />
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/15" />
+              {/* Botón de audio */}
+              <button
+                type="button"
+                onClick={toggleMute}
+                className="absolute right-3 top-3 flex h-9 w-9 items-center justify-center rounded-full bg-black/55 text-white backdrop-blur-sm transition-colors hover:bg-accent"
+                aria-label={muted ? 'Activar sonido' : 'Silenciar'}
+              >
+                {muted ? <VolumeX size={16} /> : <Volume2 size={16} />}
+              </button>
               <div className="pointer-events-none absolute inset-x-0 bottom-0 p-4">
                 <p className="font-accent text-[0.62rem] uppercase tracking-[0.16em] text-white/80">
                   CMB Taller de Scooter

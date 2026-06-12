@@ -19,7 +19,7 @@ import {
 } from 'lucide-react'
 import { MagneticButton } from '../components/interactive/MagneticButton'
 import { services } from '../data/services'
-import { waLink } from '../data/social'
+import { MAPS_EMBED, MAPS_URL, waLink } from '../data/social'
 import { fadeUpItem, staggerContainer, VIEWPORT_ONCE } from '../lib/motion'
 
 const SERVICE_IDS = ['centro', 'suspension', 'emove', 'movil', 'carbon', 'pqrs'] as const
@@ -43,8 +43,6 @@ const serviceOptions = services.map((s) => ({
   label: s.name.replace('\n', ' '),
 }))
 
-const GOOGLE_MAPS_URL =
-  'https://www.google.com/maps/search/?api=1&query=CMB+Centro+Park+Tool+Pasto+Nari%C3%B1o'
 
 const inputClass =
   'mt-2 w-full border-b border-white/20 bg-transparent pb-3 font-body text-white outline-none transition-[border-color] duration-200 placeholder:text-[#56527d] focus:border-accent'
@@ -376,22 +374,27 @@ export function ContactSection() {
             </Link>
           </motion.div>
 
-          {/* Placeholder de mapa */}
-          <motion.div
-            variants={fadeUpItem}
-            className="mt-10 flex h-[280px] w-full flex-col items-center justify-center gap-3 border border-[rgba(91,75,214,0.3)] bg-surface"
-          >
-            <MapPin size={36} color="#5B4BD6" strokeWidth={1.5} />
-            <p className="font-accent text-[0.8rem] uppercase tracking-[0.14em] text-muted">
-              Pasto, Nariño
-            </p>
+          {/* Mapa del taller */}
+          <motion.div variants={fadeUpItem} className="mt-10">
+            <div className="overflow-hidden border border-[rgba(91,75,214,0.3)]">
+              <iframe
+                src={MAPS_EMBED}
+                title="Ubicación del taller CMB en Pasto"
+                width="100%"
+                height={280}
+                style={{ border: 0, filter: 'grayscale(0.3) invert(0.92) hue-rotate(180deg)' }}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
+            </div>
             <a
-              href={GOOGLE_MAPS_URL}
+              href={MAPS_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="link-underline font-accent text-[0.72rem] uppercase tracking-[0.14em] text-accent"
+              className="link-underline mt-3 inline-flex items-center gap-2 font-accent text-[0.72rem] uppercase tracking-[0.14em] text-accent"
             >
-              Ubícanos en Google Maps →
+              <MapPin size={14} /> Ubícanos en Google Maps →
             </a>
           </motion.div>
         </motion.div>

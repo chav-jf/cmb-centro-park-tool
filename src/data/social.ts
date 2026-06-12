@@ -18,6 +18,14 @@ export function waLink(text?: string): string {
   return text ? `${base}?text=${encodeURIComponent(text)}` : base
 }
 
+/** Ubicación del taller en Google Maps. */
+export const MAPS_URL =
+  'https://www.google.com/maps/place/Centro+de+mantenimiento+ParkTool/@1.2186172,-77.293269,15z/data=!4m10!1m2!2m1!1sCMB+PARK+TOOL+PASTO!3m6!1s0x8e2ed48063df1baf:0x2d0d399135ffe51e!8m2!3d1.2169752!4d-77.2823207!16s%2Fg%2F11c6qpxlyf'
+
+/** URL de mapa embebible (sin API key) centrado en el taller. */
+export const MAPS_EMBED =
+  'https://maps.google.com/maps?q=1.2169752,-77.2823207&z=16&hl=es&output=embed'
+
 export const socialLinks: SocialLink[] = [
   {
     platform: 'Instagram',

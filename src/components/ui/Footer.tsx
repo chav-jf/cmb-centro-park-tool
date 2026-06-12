@@ -1,8 +1,8 @@
 import { type MouseEvent } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
-import { Facebook, Instagram, MessageCircle, Music2, type LucideIcon } from 'lucide-react'
+import { Facebook, Instagram, MapPin, MessageCircle, Music2, type LucideIcon } from 'lucide-react'
 import { scrollToSection } from '../../lib/lenis'
-import { socialLinks, type SocialIcon } from '../../data/social'
+import { MAPS_URL, socialLinks, type SocialIcon } from '../../data/social'
 
 const FOOTER_LINKS = [
   { label: 'Servicios', href: '#servicios' },
@@ -62,8 +62,16 @@ export function Footer() {
             </p>
           </div>
           <p className="mt-5 whitespace-pre-line font-body text-sm leading-relaxed text-muted">
-            {'Centro de Mantenimiento de Bicicletas\nPasto, Nariño, Colombia'}
+            {'Centro de Mantenimiento de Bicicletas\nCalle 16 #28-97, San Andrés\nPasto, Nariño, Colombia'}
           </p>
+          <a
+            href={MAPS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="link-underline mt-4 inline-flex items-center gap-2 font-accent text-[0.7rem] uppercase tracking-[0.14em] text-accent"
+          >
+            <MapPin size={13} /> Ver en Google Maps →
+          </a>
         </div>
 
         {/* Links */}

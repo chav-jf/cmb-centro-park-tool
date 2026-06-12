@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react'
 
 const STORAGE_KEY = 'cmb_gallery_images_v1'
-const MAX_IMAGES = 12
+const MAX_IMAGES = 8
 const MAX_SIZE_MB = 5
 
 export interface GalleryImage {

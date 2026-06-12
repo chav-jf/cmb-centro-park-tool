@@ -31,11 +31,4 @@ export const reels: Reel[] = [
     hashtags: ['cmbcentroparktool', 'parktool'],
     platform: 'TikTok',
   },
-  {
-    id: 'placeholder-2',
-    src: '',
-    caption: 'Tu próximo reel CMB',
-    hashtags: ['suspensionlab', 'ndtuned'],
-    platform: 'Facebook',
-  },
 ]
