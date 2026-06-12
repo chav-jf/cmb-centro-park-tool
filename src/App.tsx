@@ -11,6 +11,7 @@ import { MarqueeSection } from './sections/MarqueeSection'
 import { AboutSection } from './sections/AboutSection'
 import { ServicesSection } from './sections/ServicesSection'
 import { SuspensionSection } from './sections/SuspensionSection'
+import { ScooterSection } from './sections/ScooterSection'
 import { BrandsSection } from './sections/BrandsSection'
 import { GallerySection } from './sections/GallerySection'
 import { RedesSection } from './sections/RedesSection'
@@ -44,6 +45,7 @@ function HomePage() {
       <AboutSection />
       <ServicesSection />
       <SuspensionSection />
+      <ScooterSection />
       <BrandsSection />
       <GallerySection />
       <RedesSection />
