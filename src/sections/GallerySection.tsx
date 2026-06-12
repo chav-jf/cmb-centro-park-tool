@@ -36,7 +36,7 @@ export function GallerySection() {
           </motion.h2>
           <motion.p
             variants={fadeUpItem}
-            className="mt-6 max-w-[480px] font-body leading-[1.65] text-[#8a8a8a]"
+            className="mt-6 max-w-[480px] font-body leading-[1.65] text-[#9a96b8]"
           >
             @cmbcentroparktool — Inspírate con nuestro trabajo diario
           </motion.p>

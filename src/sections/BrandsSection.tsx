@@ -14,7 +14,7 @@ export function BrandsSection() {
   const y = useTransform(scrollYProgress, [0, 1], [0, reduced ? 0 : -30])
 
   return (
-    <section ref={sectionRef} className="bg-[#0D0D0D] py-24">
+    <section ref={sectionRef} className="bg-[#0E0B28] py-24">
       <div className="mx-auto max-w-7xl px-6">
         <motion.div
           initial="hidden"
@@ -50,8 +50,8 @@ export function BrandsSection() {
               variants={fadeUpItem}
               className={`flex flex-col items-center justify-center gap-2 bg-surface px-8 py-6 text-center transition-[transform,border-color] duration-300 hover:scale-[1.04] ${
                 brand.highlight
-                  ? 'border border-[rgba(204,0,0,0.35)] hover:border-[rgba(204,0,0,0.6)]'
-                  : 'border border-white/[0.06] hover:border-[rgba(204,0,0,0.3)]'
+                  ? 'border border-[rgba(91,75,214,0.4)] hover:border-[rgba(91,75,214,0.7)]'
+                  : 'border border-white/[0.06] hover:border-[rgba(91,75,214,0.35)]'
               }`}
             >
               <p

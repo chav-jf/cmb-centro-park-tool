@@ -9,6 +9,7 @@ export default {
         surface2: 'var(--color-surface2)',
         accent: 'var(--color-accent)',
         'accent-h': 'var(--color-accent-h)',
+        'logo-navy': 'var(--color-logo-navy)',
         muted: 'var(--color-muted)',
         line: 'var(--color-border)',
       },

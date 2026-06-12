@@ -29,7 +29,7 @@ const instagram = socialLinks[0]
 
 export function AboutSection() {
   return (
-    <section id="nosotros" className="bg-[#0A0A0A] py-32">
+    <section id="nosotros" className="bg-[#0C0A24] py-32">
       <div className="mx-auto grid max-w-7xl gap-16 px-6 lg:grid-cols-[55fr_45fr]">
         {/* Columna texto — queda fija mientras los stats se revelan */}
         <div className="self-start lg:sticky lg:top-28">
@@ -53,7 +53,7 @@ export function AboutSection() {
             </motion.h2>
             <motion.p
               variants={fadeUpItem}
-              className="mt-8 max-w-[560px] font-body leading-[1.65] text-[#8a8a8a]"
+              className="mt-8 max-w-[560px] font-body leading-[1.65] text-[#9a96b8]"
             >
               Somos el Grupo CMB, el centro de mantenimiento de bicicletas más especializado de
               Pasto, Nariño. Con más de 15 años de experiencia, usamos herramientas Park Tool
@@ -62,7 +62,7 @@ export function AboutSection() {
             </motion.p>
             <motion.p
               variants={fadeUpItem}
-              className="mt-5 max-w-[560px] font-body leading-[1.65] text-[#8a8a8a]"
+              className="mt-5 max-w-[560px] font-body leading-[1.65] text-[#9a96b8]"
             >
               Desde 2021 somos distribuidores en Colombia de ND Tuned: barras, tubos, sistema OVR,
               kits de mantenimiento, amortiguadores y accesorios para suspensiones. Le apostamos a

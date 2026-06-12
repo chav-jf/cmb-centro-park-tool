@@ -1,4 +1,5 @@
 import { useEffect, useState, type MouseEvent } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { MagneticButton } from '../interactive/MagneticButton'
@@ -9,6 +10,7 @@ const NAV_LINKS = [
   { label: 'Servicios', href: '#servicios' },
   { label: 'Nosotros', href: '#nosotros' },
   { label: 'Galería', href: '#galeria' },
+  { label: 'Redes', href: '#redes' },
   { label: 'Contacto', href: '#contacto' },
 ]
 
@@ -17,6 +19,8 @@ const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1]
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
+  const navigate = useNavigate()
+  const location = useLocation()
 
   useEffect(() => {
     const onScroll = (): void => setScrolled(window.scrollY > 60)
@@ -28,7 +32,11 @@ export function Navbar() {
   const handleAnchor = (e: MouseEvent<HTMLAnchorElement>, href: string): void => {
     e.preventDefault()
     setMenuOpen(false)
-    scrollToSection(href)
+    if (location.pathname !== '/') {
+      navigate('/' + href) // p.ej. '/#servicios' → la home hace scroll al montar
+    } else {
+      scrollToSection(href)
+    }
   }
 
   return (
@@ -45,12 +53,20 @@ export function Navbar() {
             onClick={(e) => {
               e.preventDefault()
               setMenuOpen(false)
-              scrollToSection('body', 0)
+              if (location.pathname !== '/') navigate('/')
+              else scrollToSection('body', 0)
             }}
-            className="font-display text-[1.8rem] leading-none transition-transform hover:scale-[1.02]"
+            className="flex items-center gap-3 transition-transform hover:scale-[1.02]"
           >
-            <span className="text-accent">CMB</span>{' '}
-            <span className="text-white">PARK TOOL</span>
+            <img
+              src="/logo.png"
+              alt="Logo Grupo CMB"
+              className="h-10 w-10 rounded-lg object-cover ring-1 ring-white/10"
+            />
+            <span className="font-display text-[1.8rem] leading-none">
+              <span className="text-accent">CMB</span>{' '}
+              <span className="text-white">PARK TOOL</span>
+            </span>
           </a>
 
           {/* Links desktop */}

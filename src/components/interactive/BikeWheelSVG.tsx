@@ -38,17 +38,17 @@ export function BikeWheelSVG({
       aria-hidden="true"
     >
       {/* Neumático */}
-      <circle cx="100" cy="100" r="96" stroke="rgba(204,0,0,0.3)" strokeWidth="10" fill="none" />
+      <circle cx="100" cy="100" r="96" stroke="rgba(91,75,214,0.3)" strokeWidth="10" fill="none" />
       {/* Aro exterior */}
-      <circle cx="100" cy="100" r={RIM_RADIUS} stroke="#CC0000" strokeWidth="5" fill="none" />
+      <circle cx="100" cy="100" r={RIM_RADIUS} stroke="#5B4BD6" strokeWidth="5" fill="none" />
       {/* Spokes */}
       {spokes.map((s, i) => (
-        <line key={i} x1="100" y1="100" x2={s.x2} y2={s.y2} stroke="#CC0000" strokeWidth="2" />
+        <line key={i} x1="100" y1="100" x2={s.x2} y2={s.y2} stroke="#5B4BD6" strokeWidth="2" />
       ))}
       {/* Buje */}
-      <circle cx="100" cy="100" r="12" stroke="#CC0000" strokeWidth="3" fill="#080808" />
+      <circle cx="100" cy="100" r="12" stroke="#5B4BD6" strokeWidth="3" fill="#0A0820" />
       {/* Tornillo del buje */}
-      <circle cx="100" cy="100" r="4" fill="#CC0000" />
+      <circle cx="100" cy="100" r="4" fill="#5B4BD6" />
     </svg>
   )
 }

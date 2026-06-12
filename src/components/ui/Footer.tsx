@@ -1,4 +1,5 @@
 import { type MouseEvent } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { Facebook, Instagram, MessageCircle, Music2, type LucideIcon } from 'lucide-react'
 import { scrollToSection } from '../../lib/lenis'
 import { socialLinks, type SocialIcon } from '../../data/social'
@@ -7,8 +8,10 @@ const FOOTER_LINKS = [
   { label: 'Servicios', href: '#servicios' },
   { label: 'Nosotros', href: '#nosotros' },
   { label: 'Galería', href: '#galeria' },
+  { label: 'Redes', href: '#redes' },
   { label: 'Contacto', href: '#contacto' },
-  { label: 'PQRS', href: '#contacto' },
+  { label: 'Envíos', href: '/envios' },
+  { label: 'PQRS', href: '/pqrs' },
 ]
 
 const socialIcons: Record<SocialIcon, LucideIcon> = {
@@ -19,13 +22,21 @@ const socialIcons: Record<SocialIcon, LucideIcon> = {
 }
 
 export function Footer() {
+  const navigate = useNavigate()
+  const location = useLocation()
+
   const handleAnchor = (e: MouseEvent<HTMLAnchorElement>, href: string): void => {
     e.preventDefault()
-    scrollToSection(href)
+    if (href.startsWith('#')) {
+      if (location.pathname !== '/') navigate('/' + href)
+      else scrollToSection(href)
+    } else {
+      navigate(href) // ruta como /pqrs
+    }
   }
 
   return (
-    <footer className="relative overflow-hidden border-t border-t-accent bg-[#050505]">
+    <footer className="relative overflow-hidden border-t border-t-accent bg-[#070617]">
       {/* Watermark */}
       <div
         className="pointer-events-none absolute inset-0 flex select-none items-center justify-center"
@@ -39,11 +50,18 @@ export function Footer() {
       <div className="relative mx-auto grid max-w-7xl gap-12 px-6 py-16 md:grid-cols-3">
         {/* Logo + descripción */}
         <div>
-          <p className="font-display text-[2rem] leading-none">
-            <span className="text-accent">CMB</span>{' '}
-            <span className="text-white">PARK TOOL</span>
-          </p>
-          <p className="mt-4 whitespace-pre-line font-body text-sm leading-relaxed text-muted">
+          <div className="flex items-center gap-3">
+            <img
+              src="/logo.png"
+              alt="Logo Grupo CMB"
+              className="h-12 w-12 rounded-lg object-cover ring-1 ring-white/10"
+            />
+            <p className="font-display text-[2rem] leading-none">
+              <span className="text-accent">CMB</span>{' '}
+              <span className="text-white">PARK TOOL</span>
+            </p>
+          </div>
+          <p className="mt-5 whitespace-pre-line font-body text-sm leading-relaxed text-muted">
             {'Centro de Mantenimiento de Bicicletas\nPasto, Nariño, Colombia'}
           </p>
         </div>

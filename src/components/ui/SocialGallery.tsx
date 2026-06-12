@@ -58,7 +58,7 @@ export function SocialGallery() {
               <button
                 type="button"
                 onClick={() => setLightbox(img.src)}
-                className="absolute inset-0 flex items-center justify-center bg-[rgba(204,0,0,0.55)] opacity-0 transition-opacity duration-200 group-hover:opacity-100"
+                className="absolute inset-0 flex items-center justify-center bg-[rgba(91,75,214,0.6)] opacity-0 transition-opacity duration-200 group-hover:opacity-100"
                 aria-label="Ver foto"
               >
                 <Eye size={32} color="white" />
@@ -77,13 +77,13 @@ export function SocialGallery() {
               key={`empty-${index}`}
               type="button"
               onClick={() => openPicker(index)}
-              className="group flex aspect-square flex-col items-center justify-center gap-2 border-2 border-dashed border-white/10 bg-surface transition-colors duration-200 hover:border-[rgba(204,0,0,0.4)]"
+              className="group flex aspect-square flex-col items-center justify-center gap-2 border-2 border-dashed border-white/10 bg-surface transition-colors duration-200 hover:border-[rgba(91,75,214,0.45)]"
             >
               <Camera
                 size={28}
-                className="text-[#444444] transition-colors duration-200 group-hover:text-accent"
+                className="text-[#56527d] transition-colors duration-200 group-hover:text-accent"
               />
-              <span className="font-accent text-[0.7rem] text-[#444444]">Subir foto</span>
+              <span className="font-accent text-[0.7rem] text-[#56527d]">Subir foto</span>
             </button>
           ),
         )}

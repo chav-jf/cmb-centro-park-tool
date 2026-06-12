@@ -32,7 +32,7 @@ export function HeroSection() {
         className="absolute inset-0"
         style={{
           background:
-            'radial-gradient(ellipse at 50% 60%, rgba(204,0,0,0.10) 0%, transparent 65%)',
+            'radial-gradient(ellipse at 50% 60%, rgba(91,75,214,0.14) 0%, transparent 65%)',
         }}
         aria-hidden="true"
       />
@@ -88,7 +88,7 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, ease: EASE, delay: 0.7 }}
           >
-            <p className="mt-8 max-w-[520px] font-body text-[1.05rem] leading-[1.65] text-[#8a8a8a]">
+            <p className="mt-8 max-w-[520px] font-body text-[1.05rem] leading-[1.65] text-[#9a96b8]">
               Grupo CMB — Centro especializado en mantenimiento de bicicletas. Distribuidores ND
               Tuned en Colombia desde 2021.
             </p>

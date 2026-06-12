@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
@@ -9,10 +10,12 @@ import {
   ChevronDown,
   Clock,
   Facebook,
+  FileText,
   Instagram,
   Loader2,
   MapPin,
   MessageCircle,
+  Truck,
 } from 'lucide-react'
 import { MagneticButton } from '../components/interactive/MagneticButton'
 import { services } from '../data/services'
@@ -44,7 +47,7 @@ const GOOGLE_MAPS_URL =
   'https://www.google.com/maps/search/?api=1&query=CMB+Centro+Park+Tool+Pasto+Nari%C3%B1o'
 
 const inputClass =
-  'mt-2 w-full border-b border-white/20 bg-transparent pb-3 font-body text-white outline-none transition-[border-color] duration-200 placeholder:text-[#444444] focus:border-accent'
+  'mt-2 w-full border-b border-white/20 bg-transparent pb-3 font-body text-white outline-none transition-[border-color] duration-200 placeholder:text-[#56527d] focus:border-accent'
 const labelClass =
   'font-accent text-[0.7rem] uppercase tracking-[0.14em] text-muted transition-colors duration-200 group-focus-within:text-accent'
 const errorClass = 'mt-2 font-accent text-[0.68rem] text-accent'
@@ -77,7 +80,7 @@ export function ContactSection() {
   }
 
   return (
-    <section id="contacto" className="bg-[#0D0D0D] py-28">
+    <section id="contacto" className="bg-[#0E0B28] py-28">
       <div className="mx-auto grid max-w-7xl gap-16 px-6 lg:grid-cols-[55fr_45fr]">
         {/* Formulario */}
         <motion.div
@@ -220,7 +223,7 @@ export function ContactSection() {
                   {...register('acepta_datos')}
                   className="mt-0.5 h-4 w-4 accent-accent"
                 />
-                <span className="font-body text-[0.85rem] leading-relaxed text-[#8a8a8a]">
+                <span className="font-body text-[0.85rem] leading-relaxed text-[#9a96b8]">
                   Acepto el tratamiento de mis datos personales (Ley 1581 de 2012)
                 </span>
               </label>
@@ -252,7 +255,7 @@ export function ContactSection() {
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0 }}
-                  className="flex items-center gap-3 border border-[rgba(204,0,0,0.3)] bg-surface p-4"
+                  className="flex items-center gap-3 border border-[rgba(91,75,214,0.35)] bg-surface p-4"
                   role="status"
                 >
                   <CheckCircle2 size={22} className="shrink-0 text-accent" />
@@ -339,12 +342,46 @@ export function ContactSection() {
             </MagneticButton>
           </motion.div>
 
+          {/* Accesos a páginas de envíos y PQRS */}
+          <motion.div variants={fadeUpItem} className="mt-4 grid gap-3 sm:grid-cols-2">
+            <Link
+              to="/envios"
+              className="group flex items-center justify-between gap-3 border border-line bg-surface p-4 transition-colors hover:border-[rgba(91,75,214,0.45)]"
+            >
+              <span className="flex items-center gap-3">
+                <Truck size={18} className="text-accent" strokeWidth={1.5} />
+                <span className="font-accent text-[0.7rem] uppercase tracking-[0.12em] text-white">
+                  Cómo hacer mi envío
+                </span>
+              </span>
+              <ArrowUpRight
+                size={16}
+                className="text-muted transition-[color,transform] group-hover:translate-x-0.5 group-hover:text-accent"
+              />
+            </Link>
+            <Link
+              to="/pqrs"
+              className="group flex items-center justify-between gap-3 border border-line bg-surface p-4 transition-colors hover:border-[rgba(91,75,214,0.45)]"
+            >
+              <span className="flex items-center gap-3">
+                <FileText size={18} className="text-accent" strokeWidth={1.5} />
+                <span className="font-accent text-[0.7rem] uppercase tracking-[0.12em] text-white">
+                  PQRS &amp; Garantía
+                </span>
+              </span>
+              <ArrowUpRight
+                size={16}
+                className="text-muted transition-[color,transform] group-hover:translate-x-0.5 group-hover:text-accent"
+              />
+            </Link>
+          </motion.div>
+
           {/* Placeholder de mapa */}
           <motion.div
             variants={fadeUpItem}
-            className="mt-10 flex h-[280px] w-full flex-col items-center justify-center gap-3 border border-[rgba(204,0,0,0.25)] bg-surface"
+            className="mt-10 flex h-[280px] w-full flex-col items-center justify-center gap-3 border border-[rgba(91,75,214,0.3)] bg-surface"
           >
-            <MapPin size={36} color="#CC0000" strokeWidth={1.5} />
+            <MapPin size={36} color="#5B4BD6" strokeWidth={1.5} />
             <p className="font-accent text-[0.8rem] uppercase tracking-[0.14em] text-muted">
               Pasto, Nariño
             </p>

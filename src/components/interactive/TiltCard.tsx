@@ -9,8 +9,8 @@ interface TiltCardProps {
   className?: string
 }
 
-const HOVER_SHADOW = '0 20px 60px rgba(204,0,0,0.20), 0 0 0 1px rgba(204,0,0,0.25)'
-const REST_SHADOW = '0 0 0 rgba(204,0,0,0), 0 0 0 0 rgba(204,0,0,0)'
+const HOVER_SHADOW = '0 20px 60px rgba(91,75,214,0.25), 0 0 0 1px rgba(91,75,214,0.30)'
+const REST_SHADOW = '0 0 0 rgba(91,75,214,0), 0 0 0 0 rgba(91,75,214,0)'
 
 export function TiltCard({ children, className = '' }: TiltCardProps) {
   const isTouch = useIsTouch()
